@@ -9,6 +9,7 @@ check_symbol_exists(strcasestr "string.h" HAVE_STRCASESTR)
 INCLUDE(CheckIncludeFile)
 CHECK_INCLUDE_FILE(security/pam_misc.h HAVE_PAM_MISC)
 
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
 configure_file(config.h.in config.h)
 add_executable(poppassd poppassd.c config.h)
 target_link_libraries(poppassd PRIVATE pam)
