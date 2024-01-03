@@ -15,7 +15,7 @@ add_executable(poppassd poppassd.c config.h)
 target_link_libraries(poppassd PRIVATE pam)
 
 # binary installed in /usr/local/sbin/poppassd on all systems
-install(FILES poppassd TYPE SBIN PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ GROUP_EXECUTE GROUP_READ WORLD_EXECUTE WORLD_READ)
+install(PROGRAMS $<TARGET_FILE:poppassd> TYPE SBIN)
 
 # we only install the service on systemd OS
 # on legacy Linux and FreeBSD you need to use inetd/xinetd
